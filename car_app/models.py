@@ -5,7 +5,7 @@ from django.db import models
 
 class Car(models.Model):
     name = models.CharField(max_length=120)
-    photo = models.ImageField(upload_to='photos/')
+    photo = models.ImageField(upload_to='photos/', blank=True, null=True)
     color = models.CharField(max_length=15)
     type = models.CharField(max_length=50)
     price = models.IntegerField()
@@ -19,13 +19,3 @@ class Car(models.Model):
 
 
 
-class Book(models.Model):
-    title = models.CharField(max_length=35)
-    author = models.CharField(max_length=20)
-    description = models.TextField()
-    pages = models.IntegerField()
-    is_new = models.BooleanField()
-    price = models.IntegerField()
-
-    def __str__(self):
-        return self.title
